@@ -262,7 +262,7 @@ async function main() {
         console.error(`[OpenAI] Failed "${j.title}": ${e instanceof Error ? e.message : e}`);
       }
     }
-    try { if (await insert(supabase, { ...j, ...s })) stored++; } catch (e: unknown) {
+    try { if (await insert(supabase, { title: j.title, company: j.company, location: j.location, url: j.url, source: j.source, ...s })) stored++; } catch (e: unknown) {
       console.error(`[DB] Insert "${j.title}": ${e instanceof Error ? e.message : e}`);
     }
   }
