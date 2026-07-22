@@ -16,6 +16,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",
     "openai": "^4.91.1",
+    "pg": "^8.22.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "resend": "^4.1.2"
