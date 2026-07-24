@@ -34,6 +34,23 @@ function App() {
       setEarlyAccessUnlocked(unlocked);
     }, []);
 
+    // Fire-and-forget pageview tracking
+    useEffect(() => {
+      supabase
+        .from("pageviews")
+        .insert({
+          path: window.location.pathname,
+          referrer: document.referrer || null,
+          user_agent: navigator.userAgent,
+        })
+        .then(({ error }) => {
+          if (error) {
+            // Silently ignore — analytics must not disrupt UX
+            console.debug("pageview track failed:", error.message);
+          }
+        });
+    }, []);
+
     const unlockEarlyAccess = useCallback(() => {
       localStorage.setItem("early_access_unlocked", "true");
       setEarlyAccessUnlocked(true);

@@ -11,3 +11,6 @@ CREATE POLICY "Public read jobs" ON jobs FOR SELECT USING (true);
 
 -- Allow public insert to the subscribers table (newsletter signup)
 CREATE POLICY "Public insert subscribers" ON subscribers FOR INSERT WITH CHECK (true);
+
+-- Allow public insert to the pageviews table (analytics tracking)
+CREATE POLICY "Public insert pageviews" ON pageviews FOR INSERT WITH CHECK (true);

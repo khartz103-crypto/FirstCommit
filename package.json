@@ -11,6 +11,7 @@
     "go-live": "bash ./go-live.sh",
     "scrape": "bun run scripts/scrape.ts",
     "newsletter": "bun run scripts/newsletter.ts",
+    "analytics": "bun run scripts/analytics.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
